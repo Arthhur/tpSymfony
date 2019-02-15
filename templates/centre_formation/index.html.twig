@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CentreFormation index{% endblock %}
+
+{% block body %}
+    <h1>CentreFormation index</h1>
+
+    <table class="ui very basic right aligned table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Rs</th>
+                <th>Nom</th>
+                <th>Adresse</th>
+                <th>Cp</th>
+                <th>Tel</th>
+                <th>Fax</th>
+                <th>Email</th>
+                <th>Tva</th>
+                <th>Ape</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for centre_formation in centre_formations %}
+            <tr>
+                <td>{{ centre_formation.id }}</td>
+                <td>{{ centre_formation.rs }}</td>
+                <td>{{ centre_formation.nom }}</td>
+                <td>{{ centre_formation.adresse }}</td>
+                <td>{{ centre_formation.cp }}</td>
+                <td>{{ centre_formation.tel }}</td>
+                <td>{{ centre_formation.fax }}</td>
+                <td>{{ centre_formation.email }}</td>
+                <td>{{ centre_formation.tva }}</td>
+                <td>{{ centre_formation.ape }}</td>
+                <td>
+                    <a href="{{ path('centre_formation_show', {'id': centre_formation.id}) }}">show</a>
+                    <a href="{{ path('centre_formation_edit', {'id': centre_formation.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('centre_formation_new') }}">Create new</a>
+{% endblock %}

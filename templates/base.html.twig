@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
+        <style>
+            body {
+                margin-left : 10px ;
+            }
+        </style>
+        {% endblock %}
+        {% block javascripts %}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
+        {% endblock %}
+    </head>
+    <body>
+        {% block header %}
+       
+            <div class="ui inverted menu">
+                <div class="header item">
+                    <a href="/catalogues" class="active item">
+                        Catalogue
+                    </a>
+                    <a href="/centre/formation" class="item">
+                        Centre de formation
+                    </a>
+                    <a href="/clients" class="item">
+                        Client
+                    </a>
+                    <a href="/commandes" class="item">
+                        Commande
+                    </a>
+                    <a href="/eleves" class="item">
+                        Élève
+                    </a>
+                    <a href="/evaluations" class="item">
+                        Évaluation
+                    </a>
+                    <a href="/formateurs" class="item">
+                        Formateur
+                    </a>
+                    <a href="/formations" class="item">
+                        Formation
+                    </a>
+                    <a href="/materiels" class="item">
+                        Matériel
+                    </a>
+                    <a href="/salles" class="item">
+                        Salle
+                    </a>
+                </div>
+                <div class="right menu">
+                    <div class="header item">
+                    <a href="/" class="item">
+                        <i class="undo icon"></i>
+                        Home
+                    </a>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+    {% endblock %}
+
+        {% block body %}
+        <h1 style="text-align : center">Welcome Symfony 4 </h1>
+        <h2 style="text-align : center">Page d'accueil</h2>
+        {% endblock %}
+
+    <script>
+        $('table').addClass('ui striped table') ;
+        $('form').addClass('ui form') ;
+        testButton() ;
+        
+       function testButton() {
+            var liens = document.getElementsByTagName('a');
+            for (var i = 0; i < liens.length; i++) {
+                var lien = liens[i];
+                lien.style.marginTop = "5px" ;
+                lien.style.marginBottom = "5px" ;
+                switch(lien.innerText) {
+                    case 'show' : lien.className = ('orange ui button');
+                                    break ;
+                    case 'edit' : lien.className = ('black ui button');
+                                    break ;
+                    case 'Create new' : lien.className = ('green ui button');
+                                    break ;
+                    case 'back to list' : lien.className = ('teal ui button');
+                                            lien.innerText = "Back" ;
+                                    break ;
+                    default : break ;
+                    
+                }
+
+            }
+
+            var boutons = document.getElementsByTagName('button') ;
+            for(var i = 0 ; i < boutons.length ; i++) {
+                var bouton = boutons[i] ;
+                bouton.style.marginTop = "5px" ;
+                bouton.style.marginBottom = "5px" ;
+                switch(bouton.innerText) {
+                    case 'Delete' : bouton.className = ('red ui button') ;
+                                    break ;
+                    case 'Update' : bouton.className = ('purple ui button') ;
+                                    break ;    
+                    case 'Save' : bouton.className = ('grey ui button') ;
+                                    break             
+                }
+            }
+
+       }
+
+      
+    </script>
+        
+    
+    </body>
+</html>

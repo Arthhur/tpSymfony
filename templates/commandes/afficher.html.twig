@@ -1,0 +1,34 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Commandes{% endblock %}
+
+{% block body %}
+ {% if commandes %}
+    <h1>Commandes</h1>
+    <h3> {{commandes[0].prenom }} {{commandes[0].nom }}</h3>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+           
+            {% for commande in commandes %}  
+            <tr>
+                <td>{{ commande.id }}</td>
+                <td>{{ commande.date ? commande.date|date('Y-m-d') : '' }}</td>
+            </tr>
+            {% endfor %}
+            
+            {% else %}
+                <h1 style="text-align : center"> Aucune commande !</h1>
+            {% endif %}
+        </tbody>
+    </table>
+
+
+{% endblock %}

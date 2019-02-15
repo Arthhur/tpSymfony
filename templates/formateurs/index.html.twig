@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Formateurs index{% endblock %}
+
+{% block body %}
+    <h1>Formateurs index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for formateur in formateurs %}
+            <tr>
+                <td>{{ formateur.id }}</td>
+                <td>{{ formateur.nom }}</td>
+                <td>
+                    <a href="{{ path('formateurs_show', {'id': formateur.id}) }}">show</a>
+                    <a href="{{ path('formateurs_edit', {'id': formateur.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('formateurs_new') }}">Create new</a>
+{% endblock %}
